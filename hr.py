@@ -28,6 +28,8 @@ async def run(address):
 
 #  E7:AC:D1:1B:B2:17 WHOOP 4A0393167 (dennis's)
 if __name__ == "__main__":
-    address = ("E7:AC:D1:1B:B2:17")  # Change to address of device
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(run(address))
+    while True:
+        address = ("E7:AC:D1:1B:B2:17")  # Change to address of device
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(run(address))
+        print('reconnecting...')
