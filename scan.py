@@ -29,13 +29,15 @@ async def main():
                 print(f"         {bd.address} {ad.local_name}")
                 #print(f"         service_uuids {ad.service_uuids}")
                 #print(dir(ad))
-                #print('bd', bd)
-                #print('ad', ad)
+                print('bd', bd)
+                print('ad', ad)
+                print('ad.sd', ad.service_data)
                 #print('ad.manufacturer_data', ad.manufacturer_data)
                 #print('ad.platform_data', ad.platform_data)
                 #print('ad.service_data', ad.service_data)
                 #print(f"         {bd!r} with {ad!r}")
         except asyncio.exceptions.CancelledError:
+            print('cancelled')
             pass
 
 if __name__ == "__main__":

@@ -8,8 +8,7 @@ HR_MEAS = "00002A37-0000-1000-8000-00805F9B34FB"
 async def run(address):
 
     async with BleakClient(address) as client:
-        connected = await client.is_connected()
-        print("Connected: {0}".format(connected))
+        print("Connected: {0}".format(client.is_connected))
 
         def hr_val_handler(sender, data):
             """Simple notification handler for Heart Rate Measurement."""
@@ -23,7 +22,7 @@ async def run(address):
 
         await client.start_notify(HR_MEAS, hr_val_handler)
 
-        while await client.is_connected():
+        while await client.is_connected:
             await asyncio.sleep(1)
 
 #  E7:AC:D1:1B:B2:17 WHOOP 4A0393167 (dennis's)
